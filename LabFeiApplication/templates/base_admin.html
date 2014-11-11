@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block header %}
+<script src="//cdn.ckeditor.com/4.4.3/standard/ckeditor.js"></script>
+<script language="javascript" type="text/javascript" src="/resources/edit_area/edit_area_full.js"></script>
+
+{% endblock header %}
+
+{% block body %}
+    <div class="col-md-2">
+        <div class="btn-group-vertical btn-group-lg">
+            <button type="button" class="btn btn-default"><a href="realtime">Real Time</a></button>
+            <button type="button" class="btn btn-default"><a href="submissions">Submissões</a></button>
+            <button type="button" class="btn btn-default"><a href="labs">Laboratórios</a></button>
+        </div>
+    </div>
+    <div class="col-md-8">
+    {% block body_admin %}
+    {% endblock body_admin %}
+    </div>
+
+{% endblock body %}

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block body %}
+    <div class="row">
+        <div class="center-block" style="width:700px;">
+            <div class="col-md-4">
+                <div class="quadro" onclick="location.href='{{ BASE_URL }}/user/{{ logged_user.login }}/edit'">
+                    <div class="icone">
+                        <img
+                                src="{{ BASE_URL }}/resources/cadastro-medium.png"></img>
+                    </div>
+                    <div class="titulo">Cadastro</div>
+                    <div class="descricao">Permite alterar seus dados cadastrais e
+                        alterar senha.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="quadro" onclick="location.href='{{ BASE_URL }}/user/{{ logged_user.login }}/labs/'">
+                    <div class="icone">
+                        <img
+                                src="{{ BASE_URL }}/resources/laboratory-medium.png"></img>
+                    </div>
+                    <div class="titulo">Laboratório</div>
+
+                    <div class="descricao">
+                        Permite consultar os laboratórios e <b>enviar</b> os exercícios
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="quadro" onclick="location.href='{{ BASE_URL }}/user/{{ logged_user.login }}/status'">
+                    <div class="icone">
+                        <img
+                                src="{{ BASE_URL }}/resources/resultados-medium.png"></img>
+                    </div>
+                    <div class="titulo">Resultados</div>
+                    <div class="descricao">Permite consultar os exercícios enviados e
+                        as correções automáticas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock body %}

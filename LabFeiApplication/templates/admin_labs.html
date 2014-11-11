@@ -1,0 +1,27 @@
+{% extends "base_admin.html" %}
+
+{% block body_admin %}
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome</th>
+                    <th>Submissões</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for lab in labs %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td><a href="lab_details?lab_id={{ lab.id }}">{{ lab.title }}</a></td>
+                        <td>{{ lab.laboratorysubmission_set.count }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock body_admin %}

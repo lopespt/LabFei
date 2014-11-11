@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block body %}
+    <div class="dropdown">
+        <button class="btn btn-default dropdown-toggle" type="button" id="dropdownCourseMenu" data-toggle="dropdown">
+            {{ selected_course.name }}
+            <span class="caret"></span>
+        </button>
+        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownCourseMenu">
+            {% for course in courses %}
+                <li role="presentation"><a role="menuitem" tabindex="-1"
+                                           href="?course_id={{ course.id }}">{{ course.name }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="row-fluid">
+        <div class="center-block">
+            {% for l in labs %}
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title"><a href="{{ l.id }}">{{ l.title }}</a></h3>
+                    </div>
+                    <div class="panel-body">
+                        <div class="col-md-6">
+                            {{ l.description|safe }}
+                        </div>
+                        <div class="col-md-6">
+                            <dl class="dl-horizontal">
+                                <dt>Abertura:</dt>
+                                <dd>14/12/2009 às 19:00</dd>
+                                <dt>Fechamento:</dt>
+                                <dd>14/12/2009 às 23:55</dd>
+                                <dt>Situação:</dt>
+                                <dd>Entregue</dd>
+                            </dl>
+                        </div>
+                    </div>
+
+                </div>
+                <!--
+                <div class="span4">
+                    <div>
+                        <a href="{{ l.id }}">{{ l.title }}</a>
+                    </div>
+                    <div>
+                        {{ l.description }}
+                    </div>
+                </div>
+                -->
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}

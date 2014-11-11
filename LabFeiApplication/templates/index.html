@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block body %}
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#txtLogin").focus();
+        });
+    </script>
+
+    <div class="loginForm">
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="url" value="{{ url }}"/>
+            <table>
+                <tr>
+                    <th>Login</th>
+                    <td><input type="text" name="login" id="txtLogin"/></td>
+                </tr>
+                <tr>
+                    <th>Senha</th>
+                    <td><input type="password" name="senha"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><input
+                            type="submit" value="Logar"/></td>
+                </tr>
+                <tr>
+                    <td colspan="2" style="text-align: center;"><a
+                            href="{{ BASE_URL }}/user/remind">Esqueci
+                        minha senha</a></td>
+                </tr>
+                <tr>
+                    <td colspan="2">Caso não tenha cadastro, <a
+                            href="{{ BASE_URL }}/user/create">clique
+                        aqui</a>.
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+{% endblock body %}

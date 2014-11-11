@@ -1,0 +1,58 @@
+{% extends "base_admin.html" %}
+{% load widget_tweaks %}
+
+
+{% block body_admin %}
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Informações do Laboratório
+        </div>
+        <div class="panel-body">
+            <form role="form" method="post">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="id">Título</label>
+                    {% render_field lab.title class="form-control" %}
+                </div>
+                <div class="form-group">
+                    <label for="id">Curso</label>
+                    {% render_field lab.course class="form-control" %}
+                </div>
+
+                <label for="id">Descrição</label>
+                <textarea id="id_description" name="description">{{ lab.description.value }}</textarea>
+                <script>
+                    CKEDITOR.replace('id_description');
+                </script>
+
+                 <label for="id_editor">Código para validação</label>
+                <textarea id="id_editor" rows="25" style="width: 100%;font-size: large" name="mainReplacement" >{{ lab.mainReplacement.value }}</textarea>
+
+                <input type="submit" value="Enviar"/>
+            </form>
+        </div>
+
+    </div>
+<script>
+$.fn.modal.Constructor.prototype.enforceFocus = function() {
+  modal_this = this
+  $(document).on('focusin.modal', function (e) {
+    if (modal_this.$element[0] !== e.target && !modal_this.$element.has(e.target).length
+    && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_select')
+    && !$(e.target.parentNode).hasClass('cke_dialog_ui_input_text')) {
+      modal_this.$element.focus()
+    }
+  })
+};
+
+</script>
+
+<script language="javascript" type="text/javascript">
+editAreaLoader.init({
+	id : "id_editor"		// textarea id
+	,syntax: "c"			// syntax to be uses for highgliting
+	,start_highlight: true		// to display with highlight mode on start-up
+});
+</script>
+
+{% endblock %}
