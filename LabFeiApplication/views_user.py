@@ -40,7 +40,7 @@ def create(request):
 
             connection = mail.get_connection(host='smtp.gmail.com', port=587,
                                              username='guilhermewachs@gmail.com',
-                                             password='Cessna080', use_tls=True)
+                                             password='%%%', use_tls=True)
             connection.open()
 
             msg = mail.EmailMessage("Assunto",
