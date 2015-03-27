@@ -51,7 +51,8 @@ class LaboratoryFile(models.Model):
     laboratory = models.ForeignKey(Laboratory)
 
     def hash(self):
-        h = hashlib.md5(str(self.id))
+        file_id = str(self.id).encode('utf-8')
+        h = hashlib.md5(file_id)
         return h.hexdigest()
 
 

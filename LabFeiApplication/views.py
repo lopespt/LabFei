@@ -33,7 +33,7 @@ def logout(request):
 def logout(request):
     file_id=int(request.GET['file_id'])
     file_hash=request.GET['hash_code']
-    if hashlib.md5(str(file_id)).hexdigest() != file_hash:
+    if hashlib.md5(str(file_id).encode('utf-8')).hexdigest() != file_hash:
         raise Exception('Incorrect file hash')
 
     file_db = LaboratoryFile.objects.filter(id=file_id).first()
