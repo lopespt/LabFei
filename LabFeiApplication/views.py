@@ -10,10 +10,9 @@ from services import userService
 from LabFei.annotations import request_path
 
 
-
-
 @request_path(path='/')
 def index(request):
+    print("Entrei index")
     if request.method == 'GET':
         return render(request, 'index.html')
     else:

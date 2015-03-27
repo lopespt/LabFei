@@ -17,9 +17,9 @@ usuario_curso = [UserCourses(user=usuario[0], course=curso[0], subscriptionDate=
                  UserCourses(user=usuario[0], course=curso[1], subscriptionDate=timezone.now())]
 
 laboratory = [
-    Laboratory(course=curso[0], title='Lab 1 curso 1', description='Descrição lab 1 curso 1', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now() ),
-    Laboratory(course=curso[0], title='Lab 2 curso 1', description='Descrição lab 2 curso 1', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now() ),
-    Laboratory(course=curso[1], title='Lab 1 curso 2', description='Descrição lab 1 curso 2', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now() )
+    Laboratory(course=curso[0], title='Lab 1 curso 1', description='Descrição lab 1 curso 1', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now(), replaceMain=True ),
+    Laboratory(course=curso[0], title='Lab 2 curso 1', description='Descrição lab 2 curso 1', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now(), replaceMain=True ),
+    Laboratory(course=curso[1], title='Lab 1 curso 2', description='Descrição lab 1 curso 2', insertionDate=timezone.now(), openDate=timezone.now(), closeDate=timezone.now(), replaceMain=True )
 ]
 
 laboratoryFiles = [

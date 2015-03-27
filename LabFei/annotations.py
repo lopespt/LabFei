@@ -14,7 +14,7 @@ def request_path(path):
     path = path.replace("}", ">[\w\-_]*)")
     path = r'^%s$' % path[1:]  # Add delimiters and remove opening slash
 
-    print "registrado path - [" + path + "]"
+    print("registrado path - [" + path + "]")
 
     def decorator(view):
         urls = import_module(settings.ROOT_URLCONF)

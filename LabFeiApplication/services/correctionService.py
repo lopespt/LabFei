@@ -126,7 +126,7 @@ class ProgramRunner(object):
 
         messages_re = re.finditer("======message======.(.*?).====end=message====.", self.stdout, re.S | re.M)
         for reg in messages_re:
-            print reg.group(1)
+            print(reg.group(1))
             self.messages.append(reg.group(1))
 
 
@@ -140,7 +140,7 @@ class CodeCorrectorMainReplacement(CodeCorrector):
 
 
     def before_correction(self):
-        print "fui chamado"
+        print("fui chamado")
         source_main = self.find_main()
         self.replace_main(source_main)
 

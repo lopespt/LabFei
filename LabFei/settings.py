@@ -61,12 +61,13 @@ WSGI_APPLICATION = 'LabFei.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'test',
+        'ENGINE': 'mysql.connector.django',
+        'NAME': 'labfei',
         'USER': 'root',
-        'PASSWORD': password_here,
+        'PASSWORD': 'root',
         #'HOST': '10.0.0.2'
-        'HOST': '54.87.128.20'
+        #'HOST': '54.87.128.20'
+        'HOST': '127.0.0.1'
     }
 }
 

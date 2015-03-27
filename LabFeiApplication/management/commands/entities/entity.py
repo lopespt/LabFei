@@ -35,7 +35,7 @@ class Entity():
             kw = {k: v}
         else:
             kw = {}
-            print "\tChecking with: ",
+            print("\tChecking with: "),
             last = len(self.lookup_key_names)-1
             for k in self.lookup_key_names:
                 v = get_field_value(filled_model, k)
@@ -44,12 +44,12 @@ class Entity():
                 last -= 1
 
         exists = self.model.objects.filter(**kw).exists()
-        print (bcolors.OKGREEN + "[EXISTS]" if exists else bcolors.FAIL + "[NOT EXISTS]") + bcolors.ENDC
+        print (bcolors.OKGREEN + "[EXISTS]" if exists else bcolors.FAIL + "[NOT EXISTS]" + bcolors.ENDC)
 
         return exists
 
     def do_insertions(self):
-        print "\nChecking the Presense of data of entity " + bcolors.OKBLUE + self.model._meta.object_name + bcolors.ENDC + " on database"
+        print("\nChecking the Presense of data of entity " + bcolors.OKBLUE + self.model._meta.object_name + bcolors.ENDC + " on database")
         if hasattr(self.insertion_list, '__iter__'):
             for obj in self.insertion_list:
                 if not self.check_data_exists(obj):
@@ -76,16 +76,16 @@ class Entity():
                     if len(results) == 1:
                         entity.__setattr__(f.name, results.first())
                     else:
-                        print bcolors.FAIL + "\t[ERROR] FK NOT FOUND!" + bcolors.ENDC
+                        print(bcolors.FAIL + "\t[ERROR] FK NOT FOUND!" + bcolors.ENDC)
                         return
             else:
                 entity.__setattr__(f.name, filled_model.__getattribute__(f.name))
         try:
             entity.save()
-            print bcolors.OKGREEN + "\t[INSERTED]"
+            print(bcolors.OKGREEN + "\t[INSERTED]")
         except Exception as e:
-            print bcolors.FAIL + "\t[ERROR]"
-            print "\t\t" + str(e)
+            print(bcolors.FAIL + "\t[ERROR]")
+            print("\t\t" + str(e))
         finally:
             print(bcolors.ENDC),
 

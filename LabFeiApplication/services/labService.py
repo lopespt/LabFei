@@ -1,4 +1,4 @@
-import thread
+import _thread
 
 from LabFeiApplication.models import Laboratory, LaboratorySubmission
 from LabFeiApplication.services import userService, correctionService

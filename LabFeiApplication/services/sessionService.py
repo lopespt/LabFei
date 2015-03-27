@@ -4,7 +4,7 @@ __author__ = 'wachs'
 class Session(dict):
 
     def printAttributes(self):
-        print self.__dict__
+        print(self.__dict__)
 
 sessions = {}
 
@@ -24,7 +24,7 @@ def get_session(session_id):
 
 def printSessions():
     for k in sessions.keys():
-        print sessions[k].printAttributes()
+        print(sessions[k].printAttributes())
 
 def logged_user(request):
     if 'logged_user' in request.session:

@@ -39,7 +39,7 @@ class Laboratory(models.Model):
     insertionDate = models.DateTimeField()
     openDate = models.DateTimeField()
     closeDate = models.DateTimeField()
-    replaceMain = models.BooleanField()
+    replaceMain = models.BooleanField(True)
     mainReplacement = models.TextField()
     inputStream = models.TextField()
     expectedOutput = models.TextField()
